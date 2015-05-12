@@ -19,6 +19,10 @@ $(document).ready(function() {
   var $squareEight = $('#eight');
   var $squareNine = $('#nine');
 
+  //variable containing all the squares
+
+  var allOfTheSquares = $squareOne + $squareTwo + $squareThree + $squareFour + $squareFive + $squareSix + $squareSeven + $squareEight + $squareNine;
+
   //Keeps track of the number of moves to determine the switchMove function
   var moveCounter = 0;
 
@@ -40,6 +44,8 @@ $(document).ready(function() {
     //squareOne Winning options...
     if (($squareOne.text() === "X") && ($squareTwo.text() === "X") && ($squareThree.text() === "X")) {
       $('#one, #two, #three').addClass('winningSquares').fadeIn(5000)
+      $('boardAndInstructions').addClass('bodyWinner');
+      $('#winnerHidden').show('puff');
       return true;
     }
     if (($squareOne.text() === "O") && ($squareTwo.text() === "O") && ($squareThree.text() === "O")) {
@@ -120,8 +126,9 @@ $(document).ready(function() {
 
   var getWinner = function() {
     if (evaluateWinner()) {
-      alert(currentMove + ' wins')
-      $('#board').off()
+      $('boardAndInstructions').addClass('bodyWinner');
+      $('#winnerHidden').show('puff');
+      $('.square').off()
     };
     if (moveCounter === 9) {
       alert("It's a draw!")
@@ -138,19 +145,48 @@ $(document).ready(function() {
     console.log('check')
   };
 
-  $('#board').on('click', '.square', playerMove)
+  var clearBoard = function(){
+    $squareOne.text("").removeClass('winningSquares');
+    $squareTwo.text("").removeClass('winningSquares');
+    $squareThree.text("").removeClass('winningSquares');
+    $squareFour.text("").removeClass('winningSquares');
+    $squareFive.text("").removeClass('winningSquares');
+    $squareSix.text("").removeClass('winningSquares');
+    $squareSeven.text("").removeClass('winningSquares');
+    $squareSeven.text("").removeClass('winningSquares');
+    $squareEight.text("").removeClass('winningSquares');
+    $squareNine.text("").removeClass('winningSquares');
+
+  }
+
+  //Click event that runs the game.
+  $('.square').one('click', playerMove)
 
   //click event to bring up the instructions page
-  $('#instructions h2').on('click', function(){
-    console.log('instructions click is firing')
-    $('#instructionsHidden').show('puff')
+  $('#instruct h2').on('click', function(){
+    console.log('instruct click is firing')
+    $('#instructHidden').show('puff')
     $('#boardAndInstructions').hide()
-  })
-  $('#instructionsHidden h2').on('click', function(){
+  });
+
+  //click event to hide the instructions and bring up play page
+  $('#instructHidden h2').on('click', function(){
     console.log('instructions click is firing')
-    $('#instructionsHidden').hide()
+    $('#instructHidden').hide()
     $('#boardAndInstructions').show('puff')
-  })
+  });
+
+  //This will reset all the squares and have the game run again.
+  $('#reset').on('click', function(){
+    console.log('Reset is firing')
+    $('#winnerHidden').hide();
+    clearBoard()
+    $('.square').one('click', playerMove)
+    moveCounter = 0
+
+  });
+
+
 
 
 

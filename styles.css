@@ -7,6 +7,10 @@ body{
   background-size: fill;
 }
 
+.winnerChange{
+  opacity: 0.5;
+}
+
 h1{
   color: #fff;
   font-family: 'Playball';
@@ -16,11 +20,26 @@ h1{
   margin-left:310px;
 }
 
+#winnerHidden h1{
+  color: #fff;
+  font-family: 'Playball';
+  word-spacing: 5px;
+  font-size: 4em; 
+  margin: 50px;
+}
+
 h2{
   color: #fff;
   font-family: 'Playball';
   font-size: 2em;
   margin: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+p{
+  font-family: 'Rokkitt'
+
 }
 
 #container{
@@ -33,7 +52,7 @@ h2{
   border-radius: 10px;
 }
 
-#instructions{
+#instruct{
   height: 450px;
   width: 250px;
   display: inline-block;
@@ -48,7 +67,6 @@ h2{
   max-width: 450px;
   height: 450px;
   margin: 0 auto;
-/*  background-color: red;*/
   display: inline-block;
   vertical-align: top;
   border-radius: 10px;
@@ -66,17 +84,18 @@ h2{
   line-height: 148px;
   background-color: white;
   opacity: 0.55;
+  cursor: pointer;
 }
 
 .winningSquares{
-  transition: #DCE860 ;
+  transition: #DCE860;
   background-color: #DCE860;
   color: white;
 }
 
-#instructionsHidden{
+#instructHidden{
   height: 450px;
-  width: 765px;
+  width: 705px;
   background-color: #BBE863;
   border-radius: 20px;
   margin-top: -40px;
@@ -86,6 +105,35 @@ h2{
   top: 213px;
   left:335px;
   text-align: left;
-  padding: 10px;
+  padding-left: 50px;
+}
 
+.instructLeft{
+  vertical-align: top;
+  display: inline-block;
+  width: 30%;
+}
+
+.instructRight{
+  vertical-align: top;
+  display: inline-block;
+}
+
+#winnerHidden{
+  height: 300px;
+  width: 550px;
+  background-color: #BBE863;
+  border: 10px solid #64D664;
+  border-radius: 20px;
+  margin-top: -40px;
+  z-index: 99999;
+  display: none;
+  position: absolute;
+  top: 280px;
+  left: 440px;
+  text-align: left;
+}
+
+#reset{
+  background-color:   
 }
