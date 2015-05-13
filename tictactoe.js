@@ -4,10 +4,9 @@ $(document).ready(function() {
   //Begin Vairables//
   ///////////////////
 
-  // var $instructions
-
   //Sets the input for currentMove
   var currentMove = 'X';
+
   //Squares turned into variables
   var $squareOne = $('#one');
   var $squareTwo = $('#two');
@@ -18,10 +17,6 @@ $(document).ready(function() {
   var $squareSeven = $('#seven');
   var $squareEight = $('#eight');
   var $squareNine = $('#nine');
-
-  //variable containing all the squares
-
-  var allOfTheSquares = $squareOne + $squareTwo + $squareThree + $squareFour + $squareFive + $squareSix + $squareSeven + $squareEight + $squareNine;
 
   //Keeps track of the number of moves to determine the switchMove function
   var moveCounter = 0;
@@ -128,10 +123,11 @@ $(document).ready(function() {
     if (evaluateWinner()) {
       $('boardAndInstructions').addClass('bodyWinner');
       $('#winnerHidden').show('puff');
-      $('.square').off()
-    };
-    if (moveCounter === 9) {
-      alert("It's a draw!")
+      $('#winnerHidden h1').text(currentMove + ' Wins!');
+      $('.square').off();
+    } else if (moveCounter === 9) {
+      $('#winnerHidden h1').text("It's a Draw!")
+      $('#winnerHidden').show('puff')
     }
   };
 
@@ -145,6 +141,7 @@ $(document).ready(function() {
     console.log('check')
   };
 
+  //Removes all of the winningSquares classes to reset for the next game
   var clearBoard = function(){
     $squareOne.text("").removeClass('winningSquares');
     $squareTwo.text("").removeClass('winningSquares');
@@ -156,23 +153,22 @@ $(document).ready(function() {
     $squareSeven.text("").removeClass('winningSquares');
     $squareEight.text("").removeClass('winningSquares');
     $squareNine.text("").removeClass('winningSquares');
-
-  }
+  };
 
   //Click event that runs the game.
   $('.square').one('click', playerMove)
 
-  //click event to bring up the instructions page
+  //Click event to bring up the instructions page
   $('#instruct h2').on('click', function(){
     console.log('instruct click is firing')
     $('#instructHidden').show('puff')
-    $('#boardAndInstructions').hide()
+    $('#boardAndInstructions').hide('puff')
   });
 
-  //click event to hide the instructions and bring up play page
+  //Click event to hide the instructions and bring up play page
   $('#instructHidden h2').on('click', function(){
     console.log('instructions click is firing')
-    $('#instructHidden').hide()
+    $('#instructHidden').hide('puff')
     $('#boardAndInstructions').show('puff')
   });
 
@@ -183,8 +179,39 @@ $(document).ready(function() {
     clearBoard()
     $('.square').one('click', playerMove)
     moveCounter = 0
-
   });
+
+  //Brings up the changeThemeHidden div to select theme change
+  $('#theme').on('click', function(){
+    console.log('style change is firing')
+    $('winnerHidden').hide()
+    $('#changeThemeHidden').show('puff');
+  });
+  
+  //Changes theme to field
+  $('#changeThemeHidden #field').on('click', function(){
+    $('#themeSelect').attr('href', 'styles.css')
+  })
+
+  //Changes theme to space
+  $('#changeThemeHidden #space').on('click', function(){
+    $('#themeSelect').attr('href', '/Styles/space.css')
+  })
+  //
+   //Changes theme to space
+  $('#changeThemeHidden #ocean').on('click', function(){
+    console.log('ocean click is firing')
+    $('#themeSelect').attr('href', 'ocean.css')
+  })
+  //
+   //Changes theme to space
+  $('#changeThemeHidden #WhatTheFuck').on('click', function(){
+    $('#themeSelect').attr('href', '/Styles/WhatTheFuck.css')
+  })
+  //Closes whatever the parent element is of the close button
+  $('.closeButton').on('click', function(){
+    $(this).parent().hide('puff')
+  })
 
 
 

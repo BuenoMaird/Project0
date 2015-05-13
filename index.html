@@ -8,19 +8,19 @@
   <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
   <script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
   <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link id="themeSelect" rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div id="container">
     <h1>Tic Tac Toe</h1>
       <div id="instructHidden">
         <div class="instructLeft">
-        <h2>How to play</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque velit atque expedita debitis et, autem, nesciunt labore a rerum, minima eligendi tenetur cum, quidem. Alias autem a porro aliquid hic?</p>
+          <h2>Back to game</h2>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque velit atque expedita debitis et, autem, nesciunt labore a rerum, minima eligendi tenetur cum, quidem. Alias autem a porro aliquid hic?</p>
+         <button class="closeButton"></button>
           
         </div>
         <div class="instructRight">
-          
         </div>
       </div>
       <div id="boardAndInstructions">
@@ -40,11 +40,26 @@
         </div>
     </div>
     <div id="winnerHidden">
-      <h1>You Won!</h1>
-      <button id="reset">Play Again</button>
-      <button id="theme">Change Theme</button>
+      <h1></h1>
+      <div class="buttonContainer">
+        <button id="reset">Play Again</button>
+        <button id="theme">Change Theme</button>
+      </div>
+    </div>
+    <div id="changeThemeHidden">
+      <button id="field">Field</button>
+      <button id="space">Space</button>
+      <button id="ocean">Ocean</button>
+      <button id="whatTheFuck">WhatTheFuck</button>
+      <button class="closeButton">Close</button>
     </div>
   </div>
+  <!-- <div id="changeThemeHidden">
+    <button id="field"></button>
+    <button id="space"></button>
+    <button id="ocean"></button>
+    <button id="whatTheFuck"></button>
+  </div> -->
   
 </body>
 </html>

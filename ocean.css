@@ -2,9 +2,8 @@
 
 body{
   padding-top: 25px;
-  background-image: url('images/grass.jpg');
-  background-repeat: no-repeat;
-  background-size: fill;
+  background-image: url('images/ocean.jpg');
+  background-size: 100%
 }
 
 .winnerChange{
@@ -42,6 +41,7 @@ h2{
 p{
   font-family: 'Rokkitt'
 
+
 }
 
 #container{
@@ -59,7 +59,7 @@ p{
   width: 250px;
   display: inline-block;
   vertical-align: top;
-  background-color: #BBE863;
+  background-color: #5282A6;
   margin-left:0; 
   margin-right: 60px;
   border-radius: 20px; 
@@ -98,7 +98,7 @@ p{
 #instructHidden{
   height: 450px;
   width: 705px;
-  background-color: #BBE863;
+  background-color: #5282A6;
   border-radius: 20px;
   margin-top: -40px;
   z-index: 99999;
@@ -124,7 +124,7 @@ p{
 #winnerHidden{
   height: 300px;
   width: 550px;
-  background-color: #64B23E;
+  background-color: #16A69D;
   border: 10px solid white;
   border-radius: 20px;
   margin-top: -40px;
@@ -160,7 +160,7 @@ margin-left: 400px;
 #changeThemeHidden{
   height: 300px;
   width: 550px;
-  background-color: #64B23E;
+  background-color: #16A69D;
   border: 10px solid white;
   border-radius: 20px;
   margin-top: -40px;
