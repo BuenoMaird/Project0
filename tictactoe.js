@@ -4,6 +4,10 @@ $(document).ready(function() {
   //Begin Vairables//
   ///////////////////
 
+  var xWins = 0;
+  var oWins = 0;
+  var gameCounter = 0
+
   //Sets the input for currentMove
   var currentMove = 'X';
 
@@ -39,8 +43,6 @@ $(document).ready(function() {
     //squareOne Winning options...
     if (($squareOne.text() === "X") && ($squareTwo.text() === "X") && ($squareThree.text() === "X")) {
       $('#one, #two, #three').addClass('winningSquares').fadeIn(5000)
-      $('boardAndInstructions').addClass('bodyWinner');
-      $('#winnerHidden').show('puff');
       return true;
     }
     if (($squareOne.text() === "O") && ($squareTwo.text() === "O") && ($squareThree.text() === "O")) {
@@ -119,6 +121,7 @@ $(document).ready(function() {
     }
   }
 
+
   var getWinner = function() {
     if (evaluateWinner()) {
       $('boardAndInstructions').addClass('bodyWinner');
@@ -155,6 +158,12 @@ $(document).ready(function() {
     $squareNine.text("").removeClass('winningSquares');
   };
 
+
+
+  //////////////////
+  //Start Jquery///
+  ////////////////
+
   //Click event that runs the game.
   $('.square').one('click', playerMove)
 
@@ -175,44 +184,52 @@ $(document).ready(function() {
   //This will reset all the squares and have the game run again.
   $('#reset').on('click', function(){
     console.log('Reset is firing')
-    $('#winnerHidden').hide();
+    $('#winnerHidden').hide('puff');
     clearBoard()
     $('.square').one('click', playerMove)
-    moveCounter = 0
+    moveCounter = 0;
+    gameCounter += 1;
+    console.log('Games so far is '+gameCounter)
+    if(currentMove === "X"){
+      xWins += 1;
+      console.log(xWins);
+    }else{
+      oWins += 1;
+      console.log(oWins);
+    };
+    $('#gameCounter').text('You have played '+gameCounter)
+    $('#gamesXWon').text('Crosses have won '+ xWins)
+    $('#gamesOWon').text('Naughts have won '+ oWins)
   });
 
   //Brings up the changeThemeHidden div to select theme change
   $('#theme').on('click', function(){
     console.log('style change is firing')
-    $('winnerHidden').hide()
+    $('#winnerHidden').hide()
     $('#changeThemeHidden').show('puff');
   });
-  
   //Changes theme to field
   $('#changeThemeHidden #field').on('click', function(){
     $('#themeSelect').attr('href', 'styles.css')
-  })
-
+  });
   //Changes theme to space
   $('#changeThemeHidden #space').on('click', function(){
-    $('#themeSelect').attr('href', '/Styles/space.css')
-  })
-  //
+    $('#themeSelect').attr('href', 'space.css')
+  });
    //Changes theme to space
   $('#changeThemeHidden #ocean').on('click', function(){
     console.log('ocean click is firing')
     $('#themeSelect').attr('href', 'ocean.css')
-  })
-  //
+  });
    //Changes theme to space
   $('#changeThemeHidden #WhatTheFuck').on('click', function(){
     $('#themeSelect').attr('href', '/Styles/WhatTheFuck.css')
-  })
+  });
   //Closes whatever the parent element is of the close button
   $('.closeButton').on('click', function(){
     $(this).parent().hide('puff')
-  })
-
+    $('#winnerHidden').show('puff')
+  });
 
 
 

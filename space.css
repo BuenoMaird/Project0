@@ -2,7 +2,7 @@
 
 body{
   padding-top: 25px;
-  background-image: url('images/grass.jpg');
+  background-image: url('images/space.jpg');
   background-repeat: no-repeat;
   background-size: fill;
 }
@@ -39,8 +39,20 @@ h2{
   text-decoration: underline;
 }
 
+#instruct h2{
+  margin-bottom: 120px;
+}
+
+h3{
+  margin: 50px 0 50px 0;
+  color: #fff;
+  font-size: 1.5em;
+  font-family: 'Playball'
+}
+
 p{
-  font-family: 'Rokkitt'
+  font-family: 'Rokkitt';
+  color: #fff;
 
 }
 
@@ -59,7 +71,6 @@ p{
   width: 250px;
   display: inline-block;
   vertical-align: top;
-  background-color: #BBE863;
   margin-left:0; 
   margin-right: 60px;
   border-radius: 20px; 
@@ -91,14 +102,14 @@ p{
 
 .winningSquares{
   transition: #DCE860;
-  background-color: #DCE860;
+  background-color: #000;
   color: white;
 }
 
 #instructHidden{
   height: 450px;
   width: 705px;
-  background-color: #BBE863;
+  background-color: rgba(0,0,0,0.5);
   border-radius: 20px;
   margin-top: -40px;
   z-index: 99999;
@@ -124,8 +135,8 @@ p{
 #winnerHidden{
   height: 300px;
   width: 550px;
-  background-color: #64B23E;
   border: 10px solid white;
+  background-color: rgba(0,0,0,0.4);
   border-radius: 20px;
   margin-top: -40px;
   z-index: 99999;
@@ -160,7 +171,7 @@ margin-left: 400px;
 #changeThemeHidden{
   height: 300px;
   width: 550px;
-  background-color: #64B23E;
+  background-color: rgba(0,0,0,0.4);
   border: 10px solid white;
   border-radius: 20px;
   margin-top: -40px;

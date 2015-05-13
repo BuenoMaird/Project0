@@ -38,9 +38,20 @@ h2{
   text-decoration: underline;
 }
 
-p{
-  font-family: 'Rokkitt'
+#instruct h2{
+  margin-bottom: 120px;
+}
 
+h3{
+  color: #fff;
+  font-size: 1.5em;
+  font-family: 'Playball';
+  margin: 40px 0 40px 0;
+}
+
+p{
+  font-family: 'Rokkitt';
+  color: #fff;
 
 }
 
@@ -90,8 +101,8 @@ p{
 }
 
 .winningSquares{
-  transition: #DCE860;
-  background-color: #DCE860;
+/*  transition: #DCE860;*/
+  background-color: #00C2C2;
   color: white;
 }
 
@@ -137,6 +148,7 @@ p{
 }
 
 button{
+  text-decoration: none;
   margin-top: 20px;
   color: white;
   margin-left:40px;

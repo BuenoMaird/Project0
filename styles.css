@@ -4,7 +4,7 @@ body{
   padding-top: 25px;
   background-image: url('images/grass.jpg');
   background-repeat: no-repeat;
-  background-size: fill;
+  background-size: 140%;
 }
 
 .winnerChange{
@@ -39,8 +39,22 @@ h2{
   text-decoration: underline;
 }
 
+#instruct h2{
+
+  margin-bottom: 120px;
+}
+
+h3{
+  color: #fff;
+  font-size: 1.5em;
+  font-family: 'Playball';
+  margin: 50px 0 50px 0;
+}
+
 p{
-  font-family: 'Rokkitt'
+  font-family: 'Rokkitt';
+  color: #fff;
+  font-size: 1.3em;
 
 }
 
@@ -84,14 +98,14 @@ p{
   margin-right: -4px;
   text-align: center;
   line-height: 148px;
-  background-color: white;
-  opacity: 0.55;
+  background-color: rgba(255,255,255,0.55);
   cursor: pointer;
 }
 
 .winningSquares{
   transition: #DCE860;
   background-color: #DCE860;
+  opacity: 0.4;
   color: white;
 }
 
@@ -108,6 +122,11 @@ p{
   left:335px;
   text-align: left;
   padding-left: 50px;
+}
+
+#instructHiddenHeader{
+  width:100%;
+  height: 50px;
 }
 
 .instructLeft{
@@ -150,8 +169,8 @@ button{
 
 .closeButton{
 
-width: 50px;
-height: 50px;
+width: 100px;
+height: 100px;
 font-size: .9em;
 margin: 0;
 margin-left: 400px;
