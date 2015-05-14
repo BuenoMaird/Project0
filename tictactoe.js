@@ -38,84 +38,74 @@ $(document).ready(function() {
     };
   };
 
+
+  //Look at what repeats and put it in as the arguments for a function.
+  //This function takes the code from above (it is collapsed) and makes it so all of the elements are directly editable from the function. It makes a shit ton of sense... 
+  var checkWin = function ($s1, $s2, $s3, marker, winningSquares) {
+  if ($s1.text() === marker && $s2.text() === marker && $s3.text() === marker) {
+    $(winningSquares).addClass('winningSquares');
+    return true;
+    }
+  }
+
   //Checks the winning values for all the squares(Long and chunky will try and do with arrays if I can work it out)
-  var evaluateWinner = function() {
-    if (($squareOne.text() === "X") && ($squareTwo.text() === "X") && ($squareThree.text() === "X")) {
-      $('#one, #two, #three').addClass('winningSquares').fadeIn(5000)
+   var evaluateWinner = function() {
+    if(checkWin($squareOne, $squareTwo, $squareThree, "X", '#one, #two, #three')){
       return true;
     };
-    if (($squareOne.text() === "O") && ($squareTwo.text() === "O") && ($squareThree.text() === "O")) {
-      $('#one, #two, #three').addClass('winningSquares').fadeIn(5000)
+    if(checkWin($squareOne, $squareTwo, $squareThree, "O", '#one, #two, #three')){
       return true;
     };
-    if (($squareOne.text() === "X") && ($squareFour.text() === "X") && ($squareSeven.text() === "X")) {
-      $('#one, #four, #seven').addClass('winningSquares').fadeIn(5000)
+    if(checkWin($squareOne, $squareFour, $squareSeven, "X", '#one, #four, #seven')){
       return true;
     };
-    if (($squareOne.text() === "O") && ($squareFour.text() === "O") && ($squareSeven.text() === "O")) {
-      $('#one, #four, #seven').addClass('winningSquares').fadeIn(5000)
+    if(checkWin($squareOne, $squareFour, $squareSeven, "O", '#one, #four, #seven')){
       return true;
     };
-    if (($squareOne.text() === "X") && ($squareFive.text() === "X") && ($squareNine.text() === "X")) {
-      $('#one, #five, #nine').addClass('winningSquares').fadeIn(5000)
+    if(checkWin($squareOne, $squareFive, $squareNine, "X", '#one, #five, #nine')){
       return true;
     };
-    if (($squareOne.text() === "O") && ($squareFive.text() === "O") && ($squareNine.text() === "O")) {
-      $('#one, #five, #nine').addClass('winningSquares').fadeIn(5000)
+    if(checkWin($squareOne, $squareFive, $squareNine, "O", '#one, #five, #nine')){
       return true;
     };
 
-    //squareTwo Winning options...
+    //squareFive Winning options...
 
-    if (($squareFive.text() === "X") && ($squareTwo.text() === "X") && ($squareEight.text() === "X")) {
-      $('#five, #two, #eight').addClass('winningSquares').fadeIn(5000)
+    // if (($squareFive.text() === "X") && ($squareTwo.text() === "X") && ($squareEight.text() === "X")) {
+    //   $('#five, #two, #eight').addClass('winningSquares').fadeIn(5000)
+    //   return true;
+    // };
+    if(checkWin($squareFive, $squareTwo, $squareEight, "X", '#five, #two, #eight')){
       return true;
     };
-    if (($squareFive.text() === "O") && ($squareTwo.text() === "O") && ($squareEight.text() === "O")) {
-      $('#five, #two, #eight').addClass('winningSquares').fadeIn(5000)
+    if(checkWin($squareFive, $squareTwo, $squareEight, "O", '#five, #two, #eight')){
       return true;
     };
-    if (($squareFive.text() === "X") && ($squareFour.text() === "X") && ($squareSix.text() === "X")) {
-      $('#five, #four, #six').addClass('winningSquares').fadeIn(5000)
+    if(checkWin($squareFive, $squareFour, $squareSix, "X", '#five, #four, #six')){
       return true;
     };
-    if (($squareFive.text() === "O") && ($squareFour.text() === "O") && ($squareSix.text() === "O")) {
-      $('#five, #four, #six').addClass('winningSquares').fadeIn(5000)
+    if(checkWin($squareFive, $squareFour, $squareSix, "O", '#five, #four, #six')){
       return true;
     };
-    if (($squareFive.text() === "X") && ($squareThree.text() === "X") && ($squareSeven.text() === "X")) {
-      $('#five, #three, #seven').addClass('winningSquares').fadeIn(5000)
+    if(checkWin($squareFive, $squareThree, $squareSeven, "X", '#five, #three, #seven')){
       return true;
     };
-    if (($squareFive.text() === "O") && ($squareThree.text() === "O") && ($squareSeven.text() === "O")) {
-      $('#five, #three, #seven').addClass('winningSquares').fadeIn(5000)
+    if(checkWin($squareFive, $squareThree, $squareSeven, "O", '#five, #three, #seven')){
       return true;
     };
 
     //squareThree Winning options...
 
-    if (($squareNine.text() === "X") && ($squareThree.text() === "X") && ($squareSix.text() === "X")) {
-      $('#nine, #three, #six').addClass('winningSquares').fadeIn(5000)
+    if(checkWin($squareNine, $squareThree, $squareSix, "X", '#nine, #three, #six')){
       return true;
     };
-    if (($squareNine.text() === "O") && ($squareThree.text() === "O") && ($squareSix.text() === "O")) {
-      $('#nine, #three, #six').addClass('winningSquares').fadeIn(5000)
+    if(checkWin($squareNine, $squareThree, $squareSix, "O", '#nine, #three, #six')){
       return true;
     };
-    if (($squareNine.text() === "X") && ($squareFive.text() === "X") && ($squareOne.text() === "X")) {
-      $('#nine, #five, #one').addClass('winningSquares').fadeIn(5000)
+    if(checkWin($squareNine, $squareSeven, $squareEight, "X", '#nine, #seven, #eight')){
       return true;
     };
-    if (($squareNine.text() === "O") && ($squareFive.text() === "O") && ($squareOne.text() === "O")) {
-      $('#nine, #five, #one').addClass('winningSquares').fadeIn(5000)
-      return true;
-    };
-    if (($squareNine.text() === "X") && ($squareSeven.text() === "X") && ($squareEight.text() === "X")) {
-      $('#nine, #seven, #eight').addClass('winningSquares').fadeIn(5000)
-      return true;
-    };
-    if (($squareNine.text() === "O") && ($squareSeven.text() === "O") && ($squareEight.text() === "O")) {
-      $('#nine, #seven, #eight').addClass('winningSquares').fadeIn(5000)
+    if(checkWin($squareNine, $squareSeven, $squareEight, "O", '#nine, #seven, #eight')){
       return true;
     };
   };
@@ -155,6 +145,13 @@ $(document).ready(function() {
     $squareEight.text("").removeClass('winningSquares');
     $squareNine.text("").removeClass('winningSquares');
   };
+
+  stopDrawIncrement = function(){
+    if(moveCounter === 9){
+      xWins += 0;
+      oWins +=
+    }
+  }
 
 
 

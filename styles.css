@@ -55,7 +55,6 @@ p{
   font-family: 'Rokkitt';
   color: #fff;
   font-size: 1.3em;
-
 }
 
 #container{
@@ -103,7 +102,7 @@ p{
 }
 
 .square:hover{
-  background-color: rgba(150,150,200,0.5)
+  background-color: rgba(94,171,88,0.5)
 }
 
 .winningSquares{
