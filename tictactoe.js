@@ -6,6 +6,7 @@ $(document).ready(function() {
 
   var xWins = 0;
   var oWins = 0;
+  var winner = null
   var gameCounter = 0
 
   //Sets the input for currentMove
@@ -41,31 +42,31 @@ $(document).ready(function() {
 
   //Look at what repeats and put it in as the arguments for a function.
   //This function takes the code from above (it is collapsed) and makes it so all of the elements are directly editable from the function. It makes a shit ton of sense... 
-  var checkWin = function ($s1, $s2, $s3, marker, winningSquares) {
-  if ($s1.text() === marker && $s2.text() === marker && $s3.text() === marker) {
-    $(winningSquares).addClass('winningSquares');
-    return true;
+  var checkWin = function($s1, $s2, $s3, marker, winningSquares) {
+    if ($s1.text() === marker && $s2.text() === marker && $s3.text() === marker) {
+      $(winningSquares).addClass('winningSquares');
+      return true;
     }
   }
 
   //Checks the winning values for all the squares(Long and chunky will try and do with arrays if I can work it out)
-   var evaluateWinner = function() {
-    if(checkWin($squareOne, $squareTwo, $squareThree, "X", '#one, #two, #three')){
+  var evaluateWinner = function() {
+    if (checkWin($squareOne, $squareTwo, $squareThree, "X", '#one, #two, #three')) {
       return true;
     };
-    if(checkWin($squareOne, $squareTwo, $squareThree, "O", '#one, #two, #three')){
+    if (checkWin($squareOne, $squareTwo, $squareThree, "O", '#one, #two, #three')) {
       return true;
     };
-    if(checkWin($squareOne, $squareFour, $squareSeven, "X", '#one, #four, #seven')){
+    if (checkWin($squareOne, $squareFour, $squareSeven, "X", '#one, #four, #seven')) {
       return true;
     };
-    if(checkWin($squareOne, $squareFour, $squareSeven, "O", '#one, #four, #seven')){
+    if (checkWin($squareOne, $squareFour, $squareSeven, "O", '#one, #four, #seven')) {
       return true;
     };
-    if(checkWin($squareOne, $squareFive, $squareNine, "X", '#one, #five, #nine')){
+    if (checkWin($squareOne, $squareFive, $squareNine, "X", '#one, #five, #nine')) {
       return true;
     };
-    if(checkWin($squareOne, $squareFive, $squareNine, "O", '#one, #five, #nine')){
+    if (checkWin($squareOne, $squareFive, $squareNine, "O", '#one, #five, #nine')) {
       return true;
     };
 
@@ -75,50 +76,53 @@ $(document).ready(function() {
     //   $('#five, #two, #eight').addClass('winningSquares').fadeIn(5000)
     //   return true;
     // };
-    if(checkWin($squareFive, $squareTwo, $squareEight, "X", '#five, #two, #eight')){
+    if (checkWin($squareFive, $squareTwo, $squareEight, "X", '#five, #two, #eight')) {
       return true;
     };
-    if(checkWin($squareFive, $squareTwo, $squareEight, "O", '#five, #two, #eight')){
+    if (checkWin($squareFive, $squareTwo, $squareEight, "O", '#five, #two, #eight')) {
       return true;
     };
-    if(checkWin($squareFive, $squareFour, $squareSix, "X", '#five, #four, #six')){
+    if (checkWin($squareFive, $squareFour, $squareSix, "X", '#five, #four, #six')) {
       return true;
     };
-    if(checkWin($squareFive, $squareFour, $squareSix, "O", '#five, #four, #six')){
+    if (checkWin($squareFive, $squareFour, $squareSix, "O", '#five, #four, #six')) {
       return true;
     };
-    if(checkWin($squareFive, $squareThree, $squareSeven, "X", '#five, #three, #seven')){
+    if (checkWin($squareFive, $squareThree, $squareSeven, "X", '#five, #three, #seven')) {
       return true;
     };
-    if(checkWin($squareFive, $squareThree, $squareSeven, "O", '#five, #three, #seven')){
+    if (checkWin($squareFive, $squareThree, $squareSeven, "O", '#five, #three, #seven')) {
       return true;
     };
 
     //squareThree Winning options...
 
-    if(checkWin($squareNine, $squareThree, $squareSix, "X", '#nine, #three, #six')){
+    if (checkWin($squareNine, $squareThree, $squareSix, "X", '#nine, #three, #six')) {
       return true;
     };
-    if(checkWin($squareNine, $squareThree, $squareSix, "O", '#nine, #three, #six')){
+    if (checkWin($squareNine, $squareThree, $squareSix, "O", '#nine, #three, #six')) {
       return true;
     };
-    if(checkWin($squareNine, $squareSeven, $squareEight, "X", '#nine, #seven, #eight')){
+    if (checkWin($squareNine, $squareSeven, $squareEight, "X", '#nine, #seven, #eight')) {
       return true;
     };
-    if(checkWin($squareNine, $squareSeven, $squareEight, "O", '#nine, #seven, #eight')){
+    if (checkWin($squareNine, $squareSeven, $squareEight, "O", '#nine, #seven, #eight')) {
       return true;
     };
   };
 
+  //This sets all the elements when the winner has been received. It works by calling the evaluate winner function when it is defined as true. It also checks whether the move counter has reached 9 (the total number of moves allowed for a draw) and whether the game was won on the last move or was a legitimate draw.
   var getWinner = function() {
     if (evaluateWinner()) {
       $('boardAndInstructions').addClass('bodyWinner');
       $('#winnerHidden').show('puff');
       $('#winnerHidden h1').text(currentMove + ' Wins!');
       $('.square').off();
+      winner = currentMove;
     } else if (moveCounter === 9) {
       $('#winnerHidden h1').text("It's a Draw!")
       $('#winnerHidden').show('puff')
+      winner = 'draw'
     }
   };
 
@@ -133,7 +137,7 @@ $(document).ready(function() {
   };
 
   //Removes all of the winningSquares classes to reset for the next game
-  var clearBoard = function(){
+  var clearBoard = function() {
     $squareOne.text("").removeClass('winningSquares');
     $squareTwo.text("").removeClass('winningSquares');
     $squareThree.text("").removeClass('winningSquares');
@@ -146,37 +150,31 @@ $(document).ready(function() {
     $squareNine.text("").removeClass('winningSquares');
   };
 
-  stopDrawIncrement = function(){
-    if(moveCounter === 9){
-      xWins += 0;
-      oWins +=
-    }
-  }
 
 
 
-  //////////////////
-  //Start Jquery///
-  ////////////////
+  /////////////////
+  //Start Jquery//
+  ///////////////
 
   //Click event that runs the game.
   $('.square').one('click', playerMove)
 
   //Click event to bring up the instructions page
-  $('#instruct #instructClick').on('click', function(){
+  $('#instruct #instructClick').on('click', function() {
     console.log('instruct click is firing');
     $('#instructHidden').show('puff');
     $('#boardAndInstructions').hide('puff');
   });
 
-  $('#instruct #themeClick').on('click', function(){
+  $('#instruct #themeClick').on('click', function() {
     console.log('theme click is firing');
     $('#boardAndInstructions').hide('puff');
     $('#changeThemeHidden').show('puff');
   });
 
   //Closes whatever the parent element is of the close button
-  $('.closeButton').on('click', function(){
+  $('.closeButton').on('click', function() {
     $('#changeThemeHidden').hide('puff');
     $('#boardAndInstructions').show('puff');
   });
@@ -184,7 +182,7 @@ $(document).ready(function() {
 
 
   //Click event to hide the instructions and bring up play page
-  $('#instructHidden h2').on('click', function(){
+  $('#instructHidden h2').on('click', function() {
     console.log('instructions click is firing');
     $('#instructHidden').hide('puff');
     $('#boardAndInstructions').show('puff');
@@ -192,41 +190,42 @@ $(document).ready(function() {
 
 
   //This will reset all the squares and have the game run again.
-  $('#playAgain').on('click', function(){
+  $('#playAgain').on('click', function() {
     console.log('Reset is firing')
     $('#winnerHidden').hide('puff');
     clearBoard()
     $('.square').one('click', playerMove)
     moveCounter = 0;
     gameCounter += 1;
-    console.log('Games so far is '+gameCounter)
-    if(currentMove === "X"){
+    console.log('Games so far is ' + gameCounter)
+    if (winner === "X") {
       xWins += 1;
       console.log(xWins);
-    }else{
+    } else if (winner === "O") {
       oWins += 1;
       console.log(oWins);
     };
-    $('#gameCounter').text('You have played '+gameCounter)
-    $('#gamesXWon').text('Crosses have won '+ xWins)
-    $('#gamesOWon').text('Naughts have won '+ oWins)
+    winner = null
+    $('#gameCounter').text('You have played ' + gameCounter)
+    $('#gamesXWon').text('Crosses have won ' + xWins)
+    $('#gamesOWon').text('Naughts have won ' + oWins)
   });
 
   //Changes theme to field
-  $('#changeThemeHidden #field').on('click', function(){
+  $('#changeThemeHidden #field').on('click', function() {
     $('#themeSelect').attr('href', 'styles.css')
   });
   //Changes theme to space
-  $('#changeThemeHidden #space').on('click', function(){
+  $('#changeThemeHidden #space').on('click', function() {
     $('#themeSelect').attr('href', 'space.css')
   });
-   //Changes theme to space
-  $('#changeThemeHidden #ocean').on('click', function(){
+  //Changes theme to space
+  $('#changeThemeHidden #ocean').on('click', function() {
     console.log('ocean click is firing')
     $('#themeSelect').attr('href', 'ocean.css')
   });
-   //Changes theme to WhatTheFuck
-  $('#changeThemeHidden #WhatTheFuck').on('click', function(){
+  //Changes theme to WhatTheFuck
+  $('#changeThemeHidden #WhatTheFuck').on('click', function() {
     $('#themeSelect').attr('href', '/Styles/WhatTheFuck.css')
   });
 });

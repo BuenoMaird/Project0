@@ -1,36 +1,35 @@
 @import url(http://fonts.googleapis.com/css?family=Rokkitt:400,700|Playball);
-
-body{
+body {
   padding-top: 25px;
   background-image: url('images/grass.jpg');
   background-repeat: no-repeat;
   background-size: 140%;
 }
 
-.winnerChange{
+.winnerChange {
   opacity: 0.5;
 }
 
-h1{
+h1 {
   color: #fff;
   font-family: 'Playball';
   word-spacing: 5px;
-  font-size: 6em; 
-  margin:auto 0;
-  margin-left:310px;
+  font-size: 6em;
+  margin: auto 0;
+  margin-left: 310px;
 }
 
-#winnerHidden h1{
+#winnerHidden h1 {
   margin-left: 0;
   margin-top: 30px;
   text-align: center;
   color: #fff;
   font-family: 'Playball';
   word-spacing: 5px;
-  font-size: 4em; 
+  font-size: 4em;
 }
 
-h2{
+h2 {
   color: #fff;
   font-family: 'Playball';
   font-size: 2em;
@@ -39,26 +38,25 @@ h2{
   text-decoration: underline;
 }
 
-#instruct h2{
-
+#instruct h2 {
   margin-bottom: 50px;
 }
 
-h3{
+h3 {
   color: #fff;
   font-size: 1.5em;
   font-family: 'Playball';
   margin: 50px 0 50px 0;
 }
 
-p{
+p {
   font-family: 'Rokkitt';
   color: #fff;
   font-size: 1.3em;
 }
 
-#container{
-  text-align: center; 
+#container {
+  text-align: center;
   max-width: 960px;
   margin: auto;
   padding-bottom: 50px;
@@ -67,18 +65,18 @@ p{
   border-radius: 10px;
 }
 
-#instruct{
+#instruct {
   height: 450px;
   width: 250px;
   display: inline-block;
   vertical-align: top;
   background-color: #BBE863;
-  margin-left:0; 
+  margin-left: 0;
   margin-right: 60px;
-  border-radius: 20px; 
+  border-radius: 20px;
 }
 
-#board{
+#board {
   max-width: 450px;
   height: 450px;
   margin: 0 auto;
@@ -87,32 +85,32 @@ p{
   border-radius: 10px;
 }
 
-.square{
+.square {
   border-radius: 20px;
   font-size: 5em;
-  width:148px;
+  width: 148px;
   height: 148px;
   display: inline-block;
   vertical-align: top;
   margin-right: -4px;
   text-align: center;
   line-height: 148px;
-  background-color: rgba(255,255,255,0.55);
+  background-color: rgba(255, 255, 255, 0.55);
   cursor: pointer;
 }
 
-.square:hover{
-  background-color: rgba(94,171,88,0.5)
+.square:hover {
+  background-color: rgba(94, 171, 88, 0.5)
 }
 
-.winningSquares{
-  transition: #DCE860;
+.winningSquares {
+  transition: #DCE860 #000 3s;
   background-color: #DCE860;
   opacity: 0.4;
   color: white;
 }
 
-#instructHidden{
+#instructHidden {
   height: 450px;
   width: 705px;
   background-color: #BBE863;
@@ -120,26 +118,33 @@ p{
   margin-top: -40px;
   z-index: 99999;
   display: none;
-  position:absolute;
+  position: absolute;
   top: 213px;
-  left:335px;
+  left: 335px;
   text-align: left;
   padding-left: 50px;
 }
 
-.instructLeft{
+.instructLeft {
   text-align: left;
   vertical-align: top;
   display: inline-block;
   width: 30%;
 }
 
-.instructRight{
+.instructRight {
+  margin: 25px 0px 0px 40px;
+  width: 400px;
   vertical-align: top;
   display: inline-block;
+  background-image: url('images/Field-instruct.jpg');
+  background-size: 100%;
+  border-radius: 20px;
+  height: 400px;
+  background-repeat: no-repeat;
 }
 
-#winnerHidden{
+#winnerHidden {
   height: 300px;
   width: 550px;
   background-color: #64B23E;
@@ -154,33 +159,32 @@ p{
   text-align: left;
 }
 
-button{
+button {
   margin-top: 20px;
   color: white;
-  margin-left:40px;
+  margin-left: 40px;
   height: 100px;
   width: 200px;
-  font-family:'Rokkitt';
+  font-family: 'Rokkitt';
   font-size: 1.8em;
   background-color: transparent;
-  border:none;
+  border: none;
 }
 
-#playAgain{
+#playAgain {
   margin-left: 170px;
   font-size: 2.4em;
 }
 
-.closeButton{
-
-width: 100px;
-height: 100px;
-font-size: .9em;
-margin: 0;
-margin-left: 400px;
+.closeButton {
+  width: 50px;
+  height: 50px;
+  font-size: .9em;
+  margin: 0;
+  margin-left: 400px;
 }
 
-#changeThemeHidden{
+#changeThemeHidden {
   height: 300px;
   width: 550px;
   background-color: #64B23E;
@@ -194,11 +198,3 @@ margin-left: 400px;
   left: 440px;
   text-align: left;
 }
-
-
-
-
-
-
-
-
