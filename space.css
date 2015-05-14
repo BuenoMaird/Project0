@@ -40,13 +40,13 @@ h2{
 }
 
 #instruct h2{
-  margin-bottom: 120px;
+  margin-bottom: 50px;
 }
 
 h3{
   margin: 50px 0 50px 0;
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-family: 'Playball'
 }
 
@@ -98,6 +98,10 @@ p{
   background-color: white;
   opacity: 0.55;
   cursor: pointer;
+}
+
+.square:hover{
+  background-color: rgba(150,150,200,0.5);
 }
 
 .winningSquares{
@@ -159,8 +163,12 @@ button{
   border:none;
 }
 
-.closeButton{
+#playAgain{
+  margin-left: 170px;
+  font-size: 2.4em;
+}
 
+.closeButton{
 width: 50px;
 height: 50px;
 font-size: .9em;
