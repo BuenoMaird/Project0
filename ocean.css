@@ -103,9 +103,7 @@ p {
   background-color: rgba(150, 150, 200, 0.5);
 }
 
-.winningSquares {
-  /*  transition: #DCE860;*/
-  
+.winningSquares {  
   background-color: #00C2C2;
   color: white;
 }

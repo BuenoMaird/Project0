@@ -104,7 +104,6 @@ p {
 }
 
 .winningSquares {
-  transition: #DCE860 #000 3s;
   background-color: #DCE860;
   opacity: 0.4;
   color: white;
